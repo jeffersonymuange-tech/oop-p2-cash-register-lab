@@ -34,14 +34,12 @@ class TestCashRegister:
         '''accepts a title and a price and increases the total.'''
         self.cash_register.add_item("eggs", 0.98)
         assert(self.cash_register.total == 0.98)
-        # self.reset_total(self.cash_register)
         self.reset_register_totals()
 
     def test_add_item_optional_quantity(self):
         '''also accepts an optional quantity.'''
         self.cash_register.add_item("book", 5.00, 3)
         assert(self.cash_register.total == 15.00)
-        # self.cash_register.total = 0
         self.reset_register_totals()
 
     def test_add_item_with_multiple_items(self):
@@ -59,7 +57,6 @@ class TestCashRegister:
         self.cash_register_with_discount.add_item("macbook air", 1000)
         self.cash_register_with_discount.apply_discount()   
         assert(self.cash_register_with_discount.total == 800)
-        # self.cash_register_with_discount.total = 0
         self.reset_register_totals()
 
     def test_apply_discount_success_message(self):
@@ -116,4 +113,3 @@ class TestCashRegister:
       self.cash_register.void_last_transaction() 
       assert(self.cash_register.total == 0.0)
       self.reset_register_totals()
-      
